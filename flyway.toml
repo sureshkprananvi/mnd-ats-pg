@@ -1,0 +1,31 @@
+databaseType = "PostgreSql"
+id = "7bcbb029-a5e6-495e-9786-eb95e1eb58be"
+name = "mnd-ats"
+
+[flyway]
+locations = [ "filesystem:migrations" ]
+mixed = true
+outOfOrder = true
+schemaModelLocation = "schema-model"
+validateMigrationNaming = true
+
+  [flyway.check]
+  majorTolerance = 0
+
+[flywayDesktop]
+developmentEnvironment = "development"
+shadowEnvironment = "shadow"
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[redgateCompare.postgresql.options.behavior]
+detectRenames = "identical-only"
+
+[redgateCompare.postgresql.options.ignores]
+ignoreNewlinesInTextObjects = "off"
+
+[environments.az-mnd-ats]
+url = "jdbc:postgresql://pg-ser-mnd-dev-001.postgres.database.azure.com:5432/mndats"
+schemas = [ "public" ]
+displayName = "az-mnd-ats"
